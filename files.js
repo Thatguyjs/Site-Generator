@@ -32,7 +32,9 @@ class FileManager {
 		if(!path) console.trace();
 		path = path.replaceAll('\\', '/');
 
-		if(!path.startsWith('/') && !path.startsWith('.')) path = '/' + path;
+		if(!path.startsWith('/') && !path.startsWith('./') && !path.startsWith('../')) {
+			path = '/' + path;
+		}
 		if(path.endsWith('/')) path = path.slice(0, -1);
 
 		return path;
